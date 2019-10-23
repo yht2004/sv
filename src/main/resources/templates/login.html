@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>守夜System</title>
+    <meta name="keywords" content="守夜System">
+</head>
+<body class="signin">
+    <div class="signinpanel">
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="signin-info">
+                    <div class="logopanel m-b">
+                        <!--<h1><img th:src="@{/sven.png}" alt="vigil"></h1>-->
+                    </div>
+                    <div class="m-b"></div>
+                    <h3>欢迎进入 <strong>斯温的控制系统</strong></h3>
+                    <ul class="m-b">
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i>为荣耀而战</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i>别和我作对</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i>你死得光荣</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i>操！我再说一遍我是流浪剑客</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i>孤独的活，孤独的死</li>
+                    </ul>
+                    <strong>还没账号？ <a href="">立即注册>></a></strong>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <form id="signupForm" th:action="@{/user/login}" th:method="post">
+                    <div>
+                        <lable>用户名</lable><input type="text" name="username" required><br>
+                    </div>
+                    <div>
+                        <lable>密 码</lable><input type="password" name="password" required><br>
+                    </div>
+
+                    <input type="submit" value="登陆">
+                </form>
+            </div>
+        </div>
+        <div class="signup-footer">
+            <div class="pull-left">
+                @ 2019 all Rights Reserved. Vigil
+            </div>
+        </div>
+    </div>
+</body>
+</html>
