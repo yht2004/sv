@@ -4,6 +4,7 @@ package com.data2;
 
 import com.data2.project.system.user.entity.User;
 import com.data2.project.system.user.mapper.UserMapper;
+import com.data2.project.system.user.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class Data2ApplicationTests {
 
     @Autowired
     UserMapper userMapper;
+
+    @Autowired
+    UserService userService;
 
     @Test
     public void selectAllUser() {
@@ -39,6 +43,10 @@ public class Data2ApplicationTests {
         }
 
     }
-
+    @Test
+    public void selectUserByLoginName() {
+        User user = userService.selectUserByLoginName("ry");
+        System.out.println(user.getUserName()+"-"+user.getLoginName());
+    }
 
 }

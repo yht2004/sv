@@ -25,9 +25,9 @@
                 </div>
             </div>
             <div class="col-sm-5">
-                <form id="signupForm" th:action="@{/user/login}" th:method="post">
+                <form id="signupForm" th:method="post" th:action="@{/login}">
                     <div>
-                        <lable>用户名</lable><input type="text" name="username" required><br>
+                        <lable>账 号</lable><input type="text" name="loginname" required><br>
                     </div>
                     <div>
                         <lable>密 码</lable><input type="password" name="password" required><br>
@@ -43,5 +43,7 @@
             </div>
         </div>
     </div>
+    <script th:src="@{/js/jquery.min.js}" src=""></script>
+
 </body>
 </html>
