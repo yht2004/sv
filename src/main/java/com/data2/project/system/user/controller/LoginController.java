@@ -28,7 +28,21 @@ public class LoginController {
      */
     @GetMapping("/cloudlogin")
     public String cloudLogin(){
-        return "main/index";
+        return "main/login";
+    }
+
+    @PostMapping("/checklogin")
+    public String checkLogin(String login,String pwd){
+        System.out.println(login+"---"+pwd);
+        User user = userService.selectUserByLoginName(login);
+        System.out.println(user.getPassword());
+        if (user != null && user.getLoginName()==login){
+            return "main/index";
+        }else {
+            return "main/login";
+        }
+
+
     }
 
     @PostMapping("/login")

@@ -2,6 +2,12 @@ package com.data2;
 
 
 
+import com.data2.project.system.dept.service.MenuService;
+import com.data2.project.system.menu.entity.Menu;
+import com.data2.project.system.menu.mapper.MenuMapper;
+import com.data2.project.system.role.entity.Role;
+import com.data2.project.system.role.mapper.RoleMapper;
+import com.data2.project.system.role.service.RoleService;
 import com.data2.project.system.user.entity.User;
 import com.data2.project.system.user.mapper.UserMapper;
 import com.data2.project.system.user.service.UserService;
@@ -10,6 +16,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.List;
 
@@ -23,6 +30,18 @@ public class Data2ApplicationTests {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    MenuMapper menuMapper;
+
+    @Autowired
+    MenuService menuService;
+
+    @Autowired
+    RoleService roleService;
+
+    @Autowired
+    RoleMapper roleMapper;
 
     @Test
     public void selectAllUser() {
@@ -49,4 +68,20 @@ public class Data2ApplicationTests {
         System.out.println(user.getUserName()+"-"+user.getLoginName());
     }
 
+    @Test
+    public void selectMenuByUserId() {
+        List<Menu> list = menuService.selectMenuByUserId(1);
+        for (Menu n : list){
+            System.out.println(n.getMenuName());
+        }
+    }
+
+
+    @Test
+    public void selectRoleByUserId() {
+        List<Role> roles = roleMapper.selectRolesByUserId(101);
+        for (Role role : roles){
+            System.out.println(role.getRoleName());
+        }
+    }
 }
