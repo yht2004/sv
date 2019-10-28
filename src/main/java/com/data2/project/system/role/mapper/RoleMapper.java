@@ -12,6 +12,12 @@ public interface RoleMapper {
      */
     public List<Role> selectRolesByUserId(Integer userId);
 
+    /**
+     * 查询所有角色
+     * @return
+     */
+    public List<Role> selectRolesAll();
+
     int deleteByPrimaryKey(Long id);
 
     int insert(Role record);

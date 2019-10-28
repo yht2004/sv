@@ -3,10 +3,20 @@
 <mapper namespace="com.data2.project.system.menu.mapper.MenuMapper">
     <!--根据用户ID查询菜单-->
     <select id="selectMenuByUserId" resultType="com.data2.project.system.menu.entity.Menu">
-        select m.menu_id, m.parent_id, m.menu_name, m.url, m.perms , m.menu_type, m.icon, m.order_num, m.create_time
+        select DISTINCT m.menu_id, m.parent_id, m.menu_name, m.url, m.perms , m.menu_type, m.icon, m.order_num, m.create_time
         from sys_menu m
         left join sys_role_menu rm on m.menu_id = rm.menu_id
         left join sys_user_role ur on rm.role_id = ur.role_id
-        where ur.user_id = #{userId} and m.menu_type in ('M') and m.visible =0
+        where ur.user_id = #{userId} and m.menu_type in ('M','C') and m.visible =0
     </select>
+
+    <!--根据用户ID查询权限-->
+    <select id="selectPermsByUserId" resultType="com.data2.project.system.menu.entity.Menu">
+       select distinct m.perms
+		from sys_menu m
+			 left join sys_role_menu rm on m.menu_id = rm.menu_id
+			 left join sys_user_role ur on rm.role_id = ur.role_id
+		where ur.user_id = #{userId}
+    </select>
+
 </mapper>

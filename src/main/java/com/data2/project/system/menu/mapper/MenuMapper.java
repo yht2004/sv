@@ -15,13 +15,12 @@ public interface MenuMapper {
      */
     public List<Menu> selectMenuByUserId(Integer userId);
 
-    int deleteByPrimaryKey(Integer menuId);
+    /**
+     * 根据用户ID查询权限
+     * @param userId
+     * @return
+     */
+    public List<String> selectPermsByUserId(Integer userId);
 
-    int insert(Menu record);
 
-    Menu selectByPrimaryKey(Integer menuId);
-
-    List<Menu> selectAll();
-
-    int updateByPrimaryKey(Menu record);
 }

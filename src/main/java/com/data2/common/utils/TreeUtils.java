@@ -17,9 +17,8 @@ public class TreeUtils {
      */
     public static List<Menu> getChildListMenu(List<Menu> list,int parentId){
         List<Menu> returnList = new ArrayList<Menu>();
-        Iterator<Menu> it = list.iterator();
-        while (it.hasNext()){
-            Menu n = (Menu) it.next();
+        for (Iterator<Menu> it = list.iterator();it.hasNext();){
+            Menu n = it.next();
             if (n.getParentId() == parentId){
                 recursionFn(list,n);
                 returnList.add(n);

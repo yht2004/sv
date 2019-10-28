@@ -2,9 +2,12 @@ package com.data2;
 
 
 
-import com.data2.project.system.dept.service.MenuService;
+
+import com.data2.common.utils.StringUtils;
+import com.data2.common.utils.TreeUtils;
 import com.data2.project.system.menu.entity.Menu;
 import com.data2.project.system.menu.mapper.MenuMapper;
+import com.data2.project.system.menu.service.MenuService;
 import com.data2.project.system.role.entity.Role;
 import com.data2.project.system.role.mapper.RoleMapper;
 import com.data2.project.system.role.service.RoleService;
@@ -18,7 +21,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import java.util.List;
+import java.util.*;
 
 
 @RunWith(SpringRunner.class)
@@ -76,12 +79,54 @@ public class Data2ApplicationTests {
         }
     }
 
+    @Test
+    public void selectMenuByUserId2() {
+        List<Menu> menus = menuService.selectMenuByUserId(101);
+        for (Menu n : menus){
+            System.out.println(n.getMenuName());
+        }
+    }
+
 
     @Test
     public void selectRoleByUserId() {
+        List<Role> roles = roleService.selectRoleByUserId(101);
+        for (Role role : roles){
+            System.out.println(role.getRoleName());
+        }
+    }
+
+    @Test
+    public void selectRoleByUserId2() {
         List<Role> roles = roleMapper.selectRolesByUserId(101);
         for (Role role : roles){
             System.out.println(role.getRoleName());
         }
     }
+
+
+    @Test
+    public void selectRoleKey() {
+        Set<String> roleKey = roleService.selectRoleKey(101);
+        Iterator<String> it = roleKey.iterator();
+        while (it.hasNext()){
+            System.out.println(it.next());
+        }
+    }
+
+    public static String getType(Object o){
+        return o.getClass().toString();
+    }
+
+
+    @Test
+    public void selectPermsByUserId() {
+        List<String> perms = menuMapper.selectPermsByUserId(101);
+        System.out.println(getType(perms));
+        for ( int i =0;i<perms.size();i++){
+            System.out.println(perms.get(i));
+        }
+
+    }
+
 }
