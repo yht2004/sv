@@ -1,4 +1,4 @@
-package com.data2.framework.shiro;
+package com.data2.framework.shiro.realm;
 
 
 import org.apache.shiro.authc.AuthenticationException;

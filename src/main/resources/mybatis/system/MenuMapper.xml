@@ -11,7 +11,7 @@
     </select>
 
     <!--根据用户ID查询权限-->
-    <select id="selectPermsByUserId" resultType="com.data2.project.system.menu.entity.Menu">
+    <select id="selectPermsByUserId" resultType="String">
        select distinct m.perms
 		from sys_menu m
 			 left join sys_role_menu rm on m.menu_id = rm.menu_id

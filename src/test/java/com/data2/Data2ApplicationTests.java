@@ -121,10 +121,9 @@ public class Data2ApplicationTests {
 
     @Test
     public void selectPermsByUserId() {
-        List<String> perms = menuMapper.selectPermsByUserId(101);
-        System.out.println(getType(perms));
-        for ( int i =0;i<perms.size();i++){
-            System.out.println(perms.get(i));
+        List<String> perms = menuMapper.selectPermsByUserId(1);
+        for (String perm : perms){
+            System.out.println(perm);
         }
 
     }
